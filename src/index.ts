@@ -3,6 +3,7 @@ import "@database/connection";
 
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
+import cors from "cors";
 
 import ProductController from "@controller/ProductController";
 
@@ -11,6 +12,7 @@ const PORT = process.env.API_PORT || 3000;
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get("/", (request: Request, response: Response) => {
   return response.json({ msg: "SERVER UP" });
